@@ -5,9 +5,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 ## prepare
-1、安装node
+- git下载, [点此链接](https://git-scm.com/downloads)
 
-2、npm install, 如果npm慢则使用淘宝镜像,[点此连接](https://blog.csdn.net/quuqu/article/details/64121812)
+- 安装node
+
+- npm install, 如果npm慢则使用淘宝镜像, [点此链接](https://blog.csdn.net/quuqu/article/details/64121812)
 
 In the project directory, you can run:
 
