@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './About.scss';
+import './User.scss';
 import DefaultLayout from 'layouts/DefaultLayout';
 
-export default class About extends Component {
+export default class User extends Component {
 
     render() {
         return (

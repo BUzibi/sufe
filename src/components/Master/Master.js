@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import './Home.scss';
+import './Master.scss';
 import DefaultLayout from 'layouts/DefaultLayout';
 
 
-export default class Home extends Component {
+export default class Master extends Component {
 
     render() {
         return (
-            <DefaultLayout className='home'>
-                home
+            <DefaultLayout className='master'>
+                 
             </DefaultLayout>
         );
     }

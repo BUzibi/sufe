@@ -1,15 +1,33 @@
 .app-header {
     display: flex;
+    height: 72px;
+    background-color: #296ab4;
     nav {
         ul {
+            // display: flex;
+            // margin: 0;
+            // padding: 0;
+            align-items: center;
             display: flex;
-            margin: 0;
+            justify-content: center;
+            position: relative;
+            font-size: 16px;
+            font-weight: normal;
+            line-height: 1.5;
+            letter-spacing: 0.5px;
+            
+            margin-left: 60px;
             padding: 0;
+            overflow: auto; 
             li {
                 list-style: none;
                 padding: 10px 15px;
+                display:inline;
+                margin-right: 50px;
+                cursor: pointer;
                 a {
                     text-decoration: none;
+                    color: #fafafa;
                 }
             }
         }
