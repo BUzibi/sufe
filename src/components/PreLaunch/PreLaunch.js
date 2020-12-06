@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import './Search.scss';
+import './PreLaunch.scss';
 import DefaultLayout from 'layouts/DefaultLayout';
+import makepotrait from 'components/icon/makepotrait.png';
 
-export default class Search extends Component {
+export default class PreLaunch extends Component {
 
     render() {
         return (
-            <DefaultLayout className='search'>
+            <DefaultLayout className='prelaunch'>
                 <div className="filter">
                     <div className="filter_content">
 
@@ -77,7 +78,7 @@ export default class Search extends Component {
                             <div className="action-wrap">
                                 <div className="top-wrap">
                                     <div className="icon_item">
-                                        <img className="icon_wrap" alt="" />
+                                        <img className="icon_wrap" src={makepotrait} alt="" />
                                         <div className="icon_text">模拟画像</div>
                                     </div>
                                 </div>

@@ -9,6 +9,10 @@ export default class Home extends Component {
         return (
             <DefaultLayout className='home'>
                 home
+                <div>
+                About12323
+                    <a href="/article/23423432423">direct to article details</a>
+                </div>
             </DefaultLayout>
         );
     }

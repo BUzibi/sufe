@@ -4,7 +4,7 @@ import {
     Link
 } from "react-router-dom";
 
-export default class About extends Component {
+export default class AppHeader extends Component {
 
     render() {
         return (
@@ -21,7 +21,11 @@ export default class About extends Component {
                             <Link to="/postgraduate">保研大数据</Link>
                         </li>
                         <li>
-                            <Link to="/search">查询系统</Link>
+                            <span>查询系统</span>
+                            <div className="dropdown-menu">
+                                <Link to="/summercamp">夏令营</Link>
+                                <Link to="/prelaunch">预推免</Link>
+                            </div>
                         </li>
                         <li>
                             <Link to="/master">研究生入驻</Link>
