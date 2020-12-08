@@ -10,6 +10,7 @@ export default class MakePotrait extends Component {
         <PotraitLayout className='potraitreport'>
             <div className="makepotrait-box">
                 <div className="box-header">模拟画像</div>
+                
             </div>
         </PotraitLayout>
     );

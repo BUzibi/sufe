@@ -8,9 +8,7 @@ import {
 import Home from './components/Home/Home';
 import Experience from './components/Experience/Experience';
 import Postgraduate from './components/Postgraduate/Postgraduate';
-import Search from './components/Search/Search';
 import Master from './components/Master/Master';
-import Potrait from './components/Potrait/Potrait';
 import User from './components/User/User';
 import Article from './components/Article/Article';
 import SummerCamp from './components/SummerCamp/SummerCamp';
@@ -19,7 +17,7 @@ import PotraitManagement from './components/PotraitManagement/PotraitManagement'
 import Payment from './components/Payment/Payment';
 import MakePotrait from './components/MakePotrait/MakePotrait';
 import PotraitReport from './components/PotraitReport/PotraitReport';
-
+import Administrator from './components/Administrator/Administrator';
 
 export default class App extends Component {
 	render() {
@@ -35,9 +33,6 @@ export default class App extends Component {
 					<Route path="/postgraduate">
 						<Postgraduate />
 					</Route>
-					<Route path="/search">
-						<Search />
-					</Route>
 					<Route path="/summercamp">
 						<SummerCamp />
 					</Route>
@@ -46,9 +41,6 @@ export default class App extends Component {
 					</Route>
 					<Route path="/master">
 						<Master />
-					</Route>
-					<Route path="/potrait">
-						<Potrait />
 					</Route>
 					<Route path="/user">
 						<User />
@@ -67,6 +59,9 @@ export default class App extends Component {
 					</Route>
 					<Route path="/potraitreport">
 						<PotraitReport />
+					</Route>
+					<Route path="/administrator">
+						<Administrator />
 					</Route>
 				</Switch>
 			</Router>

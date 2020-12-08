@@ -3,23 +3,32 @@ import './MyResume.scss';
 // import './myScript.js';
 import EmptyLayout from 'layouts/EmptyLayout';
 import Table from 'components/Table/Table';
+import Tabs from 'components/Tabs/Tabs';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { tabChange, addGrade, delGrade } from 'store/actions/potraitmanagement';
 
-export default class MyResume extends Component {
+
+@connect(state => ({
+    tabValue: state.potraitmanagement.tabValue,
+    tabItems: state.potraitmanagement.tabItems,
+}), dispatch => ({
+    tabChange: (tabValue) => dispatch(tabChange({ tabValue }))
+}))
+class MyResume extends Component {
+    static propTypes = {
+        tabValue: PropTypes.string,
+        tabItems: PropTypes.array,
+
+        tabChange: PropTypes.func,
+    };
+
     render() {
+        const { tabItems, tabValue, tabChange } = this.props;
         return (
             <EmptyLayout className='myresume'>
-                <div class="resume-tabs">
-                    <div class="resume-categories">
-                        <div class="col">基本信息</div>
-                        <div class="col">成绩信息</div>
-                        <div class="col">实习经历</div>
-                        <div class="col">学术经历</div>
-                        <div class="col">获奖情况</div>
-                    </div>
-                </div>
-                <div className="resume-container">
-                    {/* <div id="fundation" class="resume-contents">
+                <Tabs value={tabValue} items={tabItems} onChange={(e, item) => tabChange(item)}>
+                    <div id="fundation" class="resume-contents">
                         <form>
                             <div className="fundation-message">
                                 <span>姓名: </span>
@@ -31,7 +40,7 @@ export default class MyResume extends Component {
                             </div>
                             <div className="fundation-message">
                                 <span>本科院校: </span>
-                                <input type="text" name="UndergraduateUniversity" />
+                                <input type="text" name="UndergraduateSchool" />
                             </div>
                             <div className="fundation-message">
                                 <span>本科专业: </span>
@@ -39,7 +48,7 @@ export default class MyResume extends Component {
                             </div>
                             <div className="fundation-message">
                                 <span>目标院校: </span>
-                                <input type="text" name="TargetUniversity" />
+                                <input type="text" name="TargetSchool" />
                             </div>
                             <div className="fundation-message">
                                 <span>目标专业: </span>
@@ -66,41 +75,53 @@ export default class MyResume extends Component {
                                 <input type="text" name="tofel" />
                             </div>
                         </form>
-                    </div> */}
-                    <div id="grades" class="resume-contents">
-                        <GradeList/>
-                        <button className="resume-add">添加</button>
                     </div>
+                    <GradeList />
                     <div id="internship" class="resume-contents">
-                        <InternshipList/>
-                        <button className="resume-add">添加</button>
+                        <InternshipList />
                     </div>
                     <div id="academic-experience" class="resume-contents">
-                        <AcademicList/>
-                        <button className="resume-add">添加</button>
+                        <AcademicList />
                     </div>
                     <div id="honor" class="resume-contents">
-                        <button className="resume-add">添加</button>
-                        <HonorList/>
+                        <HonorList />
                     </div>
-                </div>
+                </Tabs>
                 {/* <script src="./myScript.js"></script> */}
             </EmptyLayout>
         );
     }
 }
 
+@connect(state => ({
+    gradeList: state.potraitmanagement.gradeList,
+}), dispatch => ({
+    addGrade: (form) => dispatch(addGrade(form)),
+    delGrade: (id) => dispatch(delGrade(id))
+}))
 class GradeList extends Component {
+    static propTypes = {
+        gradeList: PropTypes.array,
 
+        addGrade: PropTypes.func,
+    };
 
     bClick = (item) => {
-        const { bClick } = this.props;
+        const {delGrade} = this.props;
         alert("确认删除该档案？");
+        delGrade(item.id);
+    };
+
+    addGrade = (item) => {
+        const {addGrade} = this.props;
+        alert("确认添加？");
+        addGrade(item);
     };
 
     render() {
+        const {gradeList} = this.props;
         const tableConfig = [
-            { key: 'gradeno', title: '编号', align: 'center' },
+            { key: 'id', title: '编号', align: 'center' },
             { key: 'coursename', title: '课程名称', align: 'center' },
             { key: 'score', title: '成绩', align: 'center' },
             { key: 'gpa', title: '绩点', align: 'center' },
@@ -117,20 +138,24 @@ class GradeList extends Component {
                 }
             },
         ]
-        const tableData = [
-            { gradeno: '001', coursename: '数据挖掘', score: '90', gpa: '4.0', ismajor: '是'},
-            { gradeno: '002', coursename: '机器学习', score: '87', gpa: '3.7', ismajor: '是'},
-            { gradeno: '003', coursename: '运筹学', score: '95', gpa: '4.0', ismajor: '是'},        ];
+        const item = { id: '004', coursename: '运筹学', score: '95', gpa: '4.0', ismajor: '是' };
+        console.log(gradeList, 233)
         return (
             <div>
-                <Table config={tableConfig} data={tableData} />
+                <Table config={tableConfig} data={gradeList} rowKey='id'/>
+                <button className="resume-add" onClick={() => this.addGrade(item)}>添加</button>
             </div>
         );
     }
 }
 
+@connect(state => ({
+    internshipList: state.potraitmanagement.internshipList,
+}), dispatch => ({}))
 class InternshipList extends Component {
-
+    static propTypes = {
+        internshipList: PropTypes.array,
+    };
 
     bClick = (item) => {
         const { bClick } = this.props;
@@ -138,6 +163,7 @@ class InternshipList extends Component {
     };
 
     render() {
+        const {internshipList} = this.props;
         const tableConfig = [
             { key: 'internshipno', title: '编号', align: 'center' },
             { key: 'enterprise', title: '实习公司', align: 'center' },
@@ -151,26 +177,28 @@ class InternshipList extends Component {
                     return (
                         <div className={'button-group'}>
                             <button className="update_resume" onClick={() => this.aClick(item)}>编辑</button>
-                            <button className="delete_resume" onClick={() => this. bClick(item)}>删除</button>
+                            <button className="delete_resume" onClick={() => this.bClick(item)}>删除</button>
                         </div>
                     );
                 }
             },
         ]
-        const tableData = [
-            { internshipno: '01', enterprise: '普华永道', department: 'Finance', job: '审计师', starttime: '2020-01-13', endtime: '2020-03-07'},
-            { internshipno: '02', enterprise: '优美缔', department: '研发', job: '软件工程师', starttime: '2020-07-29', endtime: '2020-01-29'},
-        ];
         return (
             <div>
-                <Table config={tableConfig} data={tableData} />
+                <Table config={tableConfig} data={internshipList}/>
+                <button className="resume-add">添加</button>
             </div>
         );
     }
 }
 
+@connect(state => ({
+    academicList: state.potraitmanagement.academicList,
+}), dispatch => ({}))
 class AcademicList extends Component {
-
+    static propTypes = {
+        academicList: PropTypes.array,
+    };
 
     bClick = (item) => {
         const { bClick } = this.props;
@@ -178,6 +206,7 @@ class AcademicList extends Component {
     };
 
     render() {
+        const {academicList} = this.props;
         const tableConfig = [
             { key: 'paperno', title: '编号', align: 'center' },
             { key: 'periodicalname', title: '期刊名称', align: 'center' },
@@ -189,24 +218,28 @@ class AcademicList extends Component {
                     return (
                         <div className={'button-group'}>
                             <button className="update_resume" onClick={() => this.aClick(item)}>编辑</button>
-                            <button className="delete_resume" onClick={() => this. bClick(item)}>删除</button>
+                            <button className="delete_resume" onClick={() => this.bClick(item)}>删除</button>
                         </div>
                     );
                 }
             },
         ]
-        const tableData = [
-            ];
         return (
             <div>
-                <Table config={tableConfig} data={tableData} />
+                <Table config={tableConfig} data={academicList} />
+                <button className="resume-add">添加</button>
             </div>
         );
     }
 }
 
+@connect(state => ({
+    honorList: state.potraitmanagement.honorList,
+}), dispatch => ({}))
 class HonorList extends Component {
-
+    static propTypes = {
+        honorList: PropTypes.array,
+    };
 
     bClick = (item) => {
         const { bClick } = this.props;
@@ -214,6 +247,7 @@ class HonorList extends Component {
     };
 
     render() {
+        const {honorList} = this.props;
         const tableConfig = [
             { key: 'honorno', title: '编号', align: 'center' },
             { key: 'awardname', title: '奖项名称', align: 'center' },
@@ -226,19 +260,19 @@ class HonorList extends Component {
                     return (
                         <div className={'button-group'}>
                             <button className="update_resume" onClick={() => this.aClick(item)}>编辑</button>
-                            <button className="delete_resume" onClick={() => this. bClick(item)}>删除</button>
+                            <button className="delete_resume" onClick={() => this.bClick(item)}>删除</button>
                         </div>
                     );
                 }
             },
         ]
-        const tableData = [
-            { honorno: '001', awardname: '中国计算机应用大赛', awarlevel: '国赛', awardrank: '一等奖', issuingtime: '2020-08-08'},
-        ];
         return (
             <div>
-                <Table config={tableConfig} data={tableData} />
+                <Table config={tableConfig} data={honorList} />
+                <button className="resume-add">添加</button>
             </div>
         );
     }
 }
+
+export default MyResume;

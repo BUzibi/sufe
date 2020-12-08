@@ -5,7 +5,6 @@ import PotraitLayout from 'layouts/PotraitLayout';
 import Table from 'components/Table/Table';
 import MyResume from 'components/MyResume/MyResume';
 
-
 export default class PotraitManagement extends Component {
 
     constructor(props) {

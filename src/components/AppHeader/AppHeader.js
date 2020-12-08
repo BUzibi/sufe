@@ -31,7 +31,7 @@ export default class AppHeader extends Component {
                             <Link to="/master">研究生入驻</Link>
                         </li>
                         <li>
-                            <Link to="/potrait">模拟画像</Link>
+                            <Link to="/potraitmanagement">模拟画像</Link>
                         </li>
                         <li>
                             <Link to="/user">个人中心</Link>

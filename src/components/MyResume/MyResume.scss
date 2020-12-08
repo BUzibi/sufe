@@ -9,11 +9,13 @@
         margin-top: 12px;
         margin-bottom: 12px;
         cursor: pointer;
-        .col:first-child{
+        .col {
             width: 90px;
             height: 48px;
-            box-shadow: inset 0 -2px 0 0 #2196f3;
-            color: #2196f3;
+            &.active {
+                box-shadow: inset 0 -2px 0 0 #2196f3;
+                color: #2196f3;
+            }
         }
         .col+.col {
             margin-left: 36px;
@@ -21,12 +23,7 @@
     }
 }
 
-.resume-contents {
-    display: none;
-    &:first-child {
-        display: block;
-    }
-    text-align: center;
+
     .resume-add {
         color: white;
         background-color:  rgb(51, 207, 51);
@@ -40,7 +37,6 @@
         cursor: pointer;
         border-radius: 8px;
     }
-}
 
 
 
