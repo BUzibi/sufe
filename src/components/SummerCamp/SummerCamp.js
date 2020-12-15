@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './SummerCamp.scss';
 import DefaultLayout from 'layouts/DefaultLayout';
 import makepotrait from 'components/icon/makepotrait.png';
+import {
+    Link
+} from "react-router-dom";
 
 export default class SummerCamp extends Component {
 
@@ -77,10 +80,10 @@ export default class SummerCamp extends Component {
                         <div className="right-content">
                             <div className="action-wrap">
                                 <div className="top-wrap">
-                                    <div className="icon_item">
+                                    <Link to="/potraitmanagement" className="icon_item">
                                         <img className="icon_wrap" src={makepotrait} alt="" />
                                         <div className="icon_text">模拟画像</div>
-                                    </div>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

@@ -8,6 +8,9 @@ import fudan from 'components/picture/fudan.jpg';
 import sufe from 'components/picture/sufe.jpg';
 import tsinghua from 'components/picture/tsinghua.jpg';
 import jingyan from 'components/icon/jingyan.jpg';
+import {
+    Link
+} from "react-router-dom";
 
 export default class Experience extends Component {
 
@@ -161,7 +164,7 @@ export default class Experience extends Component {
                                                     <div className="subtitle">保研分为两部分，一是本校保研资格的获取，二是目标学校的接收，二者是独立的，但缺一不可。</div>
                                                 </div>
                                                 <div className="action_group">
-                                                    <div className="message">Sufer • 2020-11-11 • 阅读 77</div>
+                                                    <div className="message">Sufer • 2020-11-11 • 同济大学 • 金融 • 阅读 77</div>
                                                 </div>
                                             </div>
                                             <div className="thumbnail">
@@ -243,10 +246,10 @@ export default class Experience extends Component {
                             <div className="white_card">
                                 <div className="card_content">
                                     <div className="card_wrap">
-                                        <div className="icon_item">
+                                        <Link to="/Master" className="icon_item">
                                             <img className="icon_wrap" src={jingyan} alt="" />
                                             <div className="icon_text">写经验</div>
-                                        </div>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
