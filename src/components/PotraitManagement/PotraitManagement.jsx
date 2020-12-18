@@ -9,24 +9,25 @@ export default class PotraitManagement extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            listShow: true,
-        };
+        // this.state = {
+        //     listShow: true,
+        // };
     }
 
-    aClick = () => {
-        this.setState({ listShow: false });
-    };
+    // aClick = () => {
+    //     this.setState({ listShow: false });
+    // };
 
     render() {
-        const { listShow } = this.state;
-        let node = <List aClick={this.aClick} />;
-        if (!listShow) {
-            node = <Details />;
-        }
+        // const { listShow } = this.state;
+        // let node = <List aClick={this.aClick} />;
+        // if (!listShow) {
+        //     node = <Details />;
+        // }
         return (
             <PotraitLayout className='potraitmanagement'>
-                {node}
+                {/* {node} */}
+                <Details />
             </PotraitLayout>
         );
     }

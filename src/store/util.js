@@ -9,3 +9,11 @@ export const delById = (list, id) => {
     }
     return [...list];
 };
+
+export const replaceItemById = (list, item) => {
+    const idx = list.findIndex(({id}) => id === item.id);
+    if (idx > -1) {
+        list[idx] = item;
+    }
+    return [...list];
+};

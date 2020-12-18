@@ -6,6 +6,7 @@ import DefaultLayout from 'layouts/DefaultLayout';
 export default class Home extends Component {
 
     render() {
+        
         return (
             <DefaultLayout className='home'>
                 home

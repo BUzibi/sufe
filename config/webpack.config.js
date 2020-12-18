@@ -506,6 +506,14 @@ module.exports = function (webpackEnv) {
               // See https://github.com/webpack/webpack/issues/6571
               sideEffects: true,
             },
+            {
+              test: /\.svg$/,
+              loader: "svg-sprite-loader",
+              include: path.resolve(__dirname, "../src/assets/svgs"), //只处理指定svg的文件(所有使用的svg文件放到该文件夹下)
+              options: {
+                symbolId: "icon-[name]" // symbolId和use使用的名称对应  <use xlinkHref={"#icon-" + iconClass} />
+              },
+            },
             // Adds support for CSS Modules, but using SASS
             // using the extension .module.scss or .module.sass
             {
