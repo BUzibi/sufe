@@ -6,7 +6,7 @@ import './DialogWithHead.scss';
 
 export default class DialogWithHead extends Component {
     static propTypes = {
-        className: PropTypes.className,
+        className: PropTypes.string,
         title: PropTypes.string.isRequired,
         children: PropTypes.any,
     };

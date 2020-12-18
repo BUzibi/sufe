@@ -36,7 +36,7 @@ const initialState = {
         }
     },
     addGradeDialog: {
-        show: true,
+        show: false,
         form: {
             coursename: '',
             score: '',
@@ -59,7 +59,7 @@ export default (state = initialState, action) => {
                 ...state,
                 honorList: payload.list,
             };
-        case types.POTRAITMANAGEMENT_ADD_GRADE:
+        case types.POTRAITMANAGEMENT_CHANGE_ADD_GRADE_COURSENAME:
             return {
                 ...state,
                 gradeList: concat(state.gradeList, payload.grade),
@@ -180,6 +180,73 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 gradeList: replaceItemById(state.gradeList, payload.grade),
+            };
+        case types.POTRAITMANAGEMENT_SHOW_ADD_GRADE_DIALOG:
+            return {
+                ...state,
+                addGradeDialog: {
+                    ...state.addGradeDialog,
+                    show: true,
+                    form: payload.form,
+                },
+            };
+        case types.POTRAITMANAGEMENT_CLOSE_ADD_GRADE_DIALOG:
+            return {
+                ...state,
+                addGradeDialog: {
+                    ...state.addGradeDialog,
+                    show: false,
+                    form: initialState.addGradeDialog.form,
+                }
+            };
+        case types.POTRAITMANAGEMENT_CHANGE_ADD_GRADE_COURSENAME:
+            return {
+                ...state,
+                addGradeDialog: {
+                    ...state.addGradeDialog,
+                    form: {
+                        ...state.addGradeDialog.form,
+                        coursename: payload.coursename,
+                    },
+                }
+            };
+        case types.POTRAITMANAGEMENT_CHANGE_ADD_GRADE_SCORE:
+            return {
+                ...state,
+                addGradeDialog: {
+                    ...state.addGradeDialog,
+                    form: {
+                        ...state.addGradeDialog.form,
+                        score: payload.score,
+                    },
+                }
+            };
+        case types.POTRAITMANAGEMENT_CHANGE_ADD_GRADE_GPA:
+            return {
+                ...state,
+                addGradeDialog: {
+                    ...state.addGradeDialog,
+                    form: {
+                        ...state.addGradeDialog.form,
+                        gpa: payload.gpa,
+                    },
+                }
+            };
+        case types.POTRAITMANAGEMENT_CHANGE_ADD_GRADE_ISMAJOR:
+            return {
+                ...state,
+                addGradeDialog: {
+                    ...state.addGradeDialog,
+                    form: {
+                        ...state.addGradeDialog.form,
+                        ismajor: payload.ismajor,
+                    },
+                }
+            };
+        case types.POTRAITMANAGEMENT_UPDATE_ADD_GRADE:
+            return {
+                ...state,
+                gradeList: concat(state.gradeList, payload.grade),
             };
         default:
             return state;

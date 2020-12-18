@@ -4,11 +4,12 @@ import EmptyLayout from 'layouts/EmptyLayout';
 import Table from 'components/Table/Table';
 import Tabs from 'components/Tabs/Tabs';
 import EditGradeDialog from './EditGradeDialog/EditGradeDialog';
+import AddGradeDialog from './AddGradeDialog/AddGradeDialog';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { 
     tabChange, addGrade, delGrade, addInternship, delInternship, addAcademic, delAcademic, addHonor, delHonor,
-    showEditGradeDialog
+    showEditGradeDialog,showAddGradeDialog
  } from 'store/actions/potraitmanagement';
 
 
@@ -93,6 +94,7 @@ class MyResume extends Component {
     gradeList: state.potraitmanagement.gradeList,
 }), dispatch => ({
     showEditGradeDialog: (grade) => dispatch(showEditGradeDialog(grade)),
+    showAddGradeDialog: () => dispatch(showAddGradeDialog()),
     addGrade: (form) => dispatch(addGrade(form)),
     delGrade: (id) => dispatch(delGrade(id)),
     // editGrade: (id) => dispatch(editGrade(id)),
@@ -103,7 +105,9 @@ class GradeList extends Component {
 
         addGrade: PropTypes.func,
         delGrade: PropTypes.func,
-        editGrade: PropTypes.func,
+        showEditGradeDialog: PropTypes.func,
+        showAddGradeDialog: PropTypes.func,
+        // editGrade: PropTypes.func,
     };
 
     componentDidMount() {
@@ -154,8 +158,9 @@ class GradeList extends Component {
         return (
             <div>
                 <Table config={tableConfig} data={gradeList} rowKey='id' />
-                <button className="resume-add" onClick={() => this.addGrade(item)}>添加</button>
+                <button className="resume-add" onClick={() => this.showAddGradeDialog()}>添加</button>
                 <EditGradeDialog/>
+                <AddGradeDialog/>
             </div>
         );
     }

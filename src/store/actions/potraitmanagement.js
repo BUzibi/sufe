@@ -72,6 +72,78 @@ export const updateGrade = () => {
     };
 };
 
+
+export const addGradeCoursename = (coursename) => {
+    return async (dispatch) => {
+        dispatch({
+            type: types.POTRAITMANAGEMENT_CHANGE_ADD_GRADE_COURSENAME,
+            payload: { coursename },
+        });
+    };
+};
+
+export const addGradeScore = (score) => {
+    return async (dispatch) => {
+        dispatch({
+            type: types.POTRAITMANAGEMENT_CHANGE_ADD_GRADE_SCORE,
+            payload: { score },
+        });
+    };
+};
+
+export const addGradeGpa = (gpa) => {
+    return async (dispatch) => {
+        dispatch({
+            type: types.POTRAITMANAGEMENT_CHANGE_ADD_GRADE_GPA,
+            payload: { gpa },
+        });
+    };
+};
+
+export const addGradeIsmajor = (ismajor) => {
+    return async (dispatch) => {
+        dispatch({
+            type: types.POTRAITMANAGEMENT_CHANGE_ADD_GRADE_ISMAJOR,
+            payload: { ismajor },
+        });
+    };
+};
+
+export const showAddGradeDialog = () => {
+    return async (dispatch) => {
+        dispatch({
+            type: types.POTRAITMANAGEMENT_SHOW_ADD_GRADE_DIALOG,
+        });
+    };
+};
+
+export const closeAddGradeDialog = () => {
+    return async (dispatch) => {
+        dispatch({
+            type: types.POTRAITMANAGEMENT_CLOSE_ADD_GRADE_DIALOG,
+        });
+    };
+};
+
+export const addGrade = () => {
+    return async (dispatch, getState) => {
+        const {
+            potraitmanagement: {
+                addGradeDialog: {
+                    form
+                }
+            }
+        } = getState();
+        // deal with api
+        // data = http.post('/apipath', form)
+        dispatch({
+            type: types.POTRAITMANAGEMENT_UPDATE_ADD_GRADE,
+            payload: {grade: form},
+        });
+        dispatch(closeAddGradeDialog());
+    };
+};
+
 export const getGradeList = ({ tabValue }) => {
     return async (dispatch) => {
         // data = http.get('/list')
@@ -121,14 +193,6 @@ export const tabChange = ({ tabValue }) => {
     };
 };
 
-export const addGrade = (form) => {
-    return async (dispatch) => {
-        dispatch({
-            type: types.POTRAITMANAGEMENT_ADD_GRADE,
-            payload: { grade: form },
-        });
-    };
-};
 
 export const delGrade = (id) => {
     return async (dispatch) => {

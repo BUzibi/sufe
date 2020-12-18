@@ -48,20 +48,20 @@ class EditGradeDialog extends Component {
                 title='编辑成绩'>
                 <form>
                     <table>
-                        <tr>
+                        {/* <tr>
                             <td>课程名称</td>
+                        </tr> */}
+                        <tr>
+                            <td>课程名称<Input value={coursename} onChange={(v) => changeCoursename(v)}/></td>
                         </tr>
                         <tr>
-                            <td><Input value={coursename} onChange={(v) => changeCoursename(v)}/></td>
+                            <td>成绩<Input value={score} onChange={(v) => changeScore(v)}/></td>
                         </tr>
                         <tr>
-                            <td><Input value={score} onChange={(v) => changeScore(v)}/></td>
+                            <td>绩点<Input value={gpa} onChange={(v) => changeGpa(v)}/></td>
                         </tr>
                         <tr>
-                            <td><Input value={gpa} onChange={(v) => changeGpa(v)}/></td>
-                        </tr>
-                        <tr>
-                            <td><Input value={ismajor} onChange={(v) => changeIsmajor(v)}/></td>
+                            <td>是否专业课<Input value={ismajor} onChange={(v) => changeIsmajor(v)}/></td>
                         </tr>
                     </table>
                 </form>
