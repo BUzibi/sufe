@@ -44,7 +44,7 @@ class PotraitLayout extends Component {
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="potraitreport">
+                                    <a href="/potraitreport">
                                         <img className="potrait-icon" src={report} alt=""></img>
                                         <span>画像报告</span>
                                     </a>

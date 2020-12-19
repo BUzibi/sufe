@@ -1,0 +1,133 @@
+.masterinfo
+{
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(103,118,128,0.03);
+    padding: 1.875rem;
+    position: relative;
+    transition: box-shadow .3s ease-in-out;
+}
+
+.total-header
+{
+    margin-bottom: 2.3125rem;
+    position: relative;
+    font-size: 2rem;
+    border-bottom: rgb(0, 153, 255);
+}
+
+.masterlogin
+{
+    background-color: #fff;
+}
+
+.header
+{
+    border-left: 1px solid #d7d7d7;
+    border-right: 1px solid #d7d7d7;
+    color: #5179d2;
+    background-color: #ffffff;
+    font-weight: bold;
+    position: relative;
+    margin-bottom:30px;
+}
+
+.message
+{
+    margin-bottom: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-right: 10px;
+    font-size: 24px;
+}
+.label
+{
+    padding-right: 20px;
+}
+
+.mastermaterial
+{
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(103,118,128,0.03);
+    padding: 1.875rem;
+    position: relative;
+    transition: box-shadow .3s ease-in-out;
+}
+
+.remind
+{
+    font-size:1rem;
+    padding-right: 30px;
+    margin-bottom: 30px;
+}
+
+.button
+{
+    border: none;
+    color: white;
+    padding: 10px 26px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: rgb(211, 210, 210);
+}
+
+.statement
+{
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(103,118,128,0.03);
+    padding: 1.875rem;
+    position: relative;
+    transition: box-shadow .3s ease-in-out;
+}
+
+.auditstatus
+{
+    font-size: 1rem;
+    border-bottom: rgb(0, 153, 255);
+}
+
+.buttonstate
+{
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(103,118,128,0.03);
+    padding: 1.875rem;
+    position: relative;
+    transition: box-shadow .3s ease-in-out;
+}
+
+.master-box
+{
+    width: 100px;
+    text-align: right;
+    font-size: 20px;
+    color: #666;
+    padding-right: 10px;
+    input  {
+        font-size: 18px;
+    }
+    select {
+        font-size:18px;
+    }
+}
+
+.messagebox
+{
+    vertical-align: middle;
+    form {
+        padding: 0 30px;
+        width: 70%;
+    // display: float;
+        display: flex;
+        flex-wrap: wrap;
+        }
+}
